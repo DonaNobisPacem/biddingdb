@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Mode.create( description: "Shopping" )
+Mode.create( description: "Public Bidding" )
+Mode.create( description: "Requests for Quotation" )

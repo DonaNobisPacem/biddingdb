@@ -7,6 +7,46 @@
         1,
         1,
         1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        104,
+        40,
+        0,
+        null,
+        40,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/donanobispacem/ovpd_projects/biddingdb/spec/models/mode_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        2,
+        2,
+        null,
+        null
+      ],
+      "/home/donanobispacem/ovpd_projects/biddingdb/app/models/mode.rb": [
+        1,
         1,
         null
       ],
@@ -16,8 +56,21 @@
         1,
         1,
         null
+      ],
+      "/home/donanobispacem/ovpd_projects/biddingdb/db/seeds.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1
       ]
     },
-    "timestamp": 1455606941
+    "timestamp": 1455607934
   }
 }
