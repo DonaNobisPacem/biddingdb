@@ -1,0 +1,22 @@
+<%= simple_form_for(@bid) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :contractor %>
+    <%= f.input :number %>
+    <%= f.input :preprocurement %>
+    <%= f.input :prebidding %>
+    <%= f.input :bidding %>
+    <%= f.input :postqualification %>
+    <%= f.input :noa %>
+    <%= f.input :purchase %>
+    <%= f.input :ntp %>
+    <%= f.input :members %>
+    <%= f.input :remarks %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

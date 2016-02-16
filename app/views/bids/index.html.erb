@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Bids</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Contractor</th>
+      <th>Number</th>
+      <th>Preprocurement</th>
+      <th>Prebidding</th>
+      <th>Bidding</th>
+      <th>Postqualification</th>
+      <th>Noa</th>
+      <th>Purchase</th>
+      <th>Ntp</th>
+      <th>Members</th>
+      <th>Remarks</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bids.each do |bid| %>
+      <tr>
+        <td><%= bid.title %></td>
+        <td><%= bid.contractor %></td>
+        <td><%= bid.number %></td>
+        <td><%= bid.preprocurement %></td>
+        <td><%= bid.prebidding %></td>
+        <td><%= bid.bidding %></td>
+        <td><%= bid.postqualification %></td>
+        <td><%= bid.noa %></td>
+        <td><%= bid.purchase %></td>
+        <td><%= bid.ntp %></td>
+        <td><%= bid.members %></td>
+        <td><%= bid.remarks %></td>
+        <td><%= link_to 'Show', bid %></td>
+        <td><%= link_to 'Edit', edit_bid_path(bid) %></td>
+        <td><%= link_to 'Destroy', bid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bid', new_bid_path %>
