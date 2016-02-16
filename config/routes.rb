@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :modes
   root 'bids#index'
 
   resources :bids
