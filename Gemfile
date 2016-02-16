@@ -69,9 +69,6 @@ gem 'google-webfonts-rails'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 
-# File Handling
-gem 'carrierwave'
-
 # Search
 gem 'searchkick'
 
