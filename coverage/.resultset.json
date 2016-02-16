@@ -1,0 +1,23 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/donanobispacem/ovpd_projects/biddingdb/app/models/bid.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/home/donanobispacem/ovpd_projects/biddingdb/spec/models/user_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1455606941
+  }
+}

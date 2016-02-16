@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216064526) do
+ActiveRecord::Schema.define(version: 20160216070618) do
+
+  create_table "bids", force: :cascade do |t|
+    t.string   "title",             limit: 255
+    t.string   "contractor",        limit: 255
+    t.integer  "number",            limit: 4
+    t.datetime "preprocurement"
+    t.datetime "prebidding"
+    t.datetime "bidding"
+    t.datetime "postqualification"
+    t.datetime "noa"
+    t.datetime "purchase"
+    t.datetime "ntp"
+    t.text     "members",           limit: 65535
+    t.text     "remarks",           limit: 65535
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "mode",              limit: 4
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "",    null: false

@@ -7,7 +7,6 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
-require 'carrierwave/test/matchers'
 require 'database_cleaner'
 require 'simplecov'
 SimpleCov.start
