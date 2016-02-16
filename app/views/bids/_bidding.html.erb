@@ -1,0 +1,9 @@
+<div class="section" id="biddingSection">
+  <h1>Public Bidding</h1>
+  <div id="bidding-masonry-container" class="transitions-enabled infinite-scroll clearfix">
+    <% @bidding.each do |entry| %>
+      <%= render "entrybox", entry: entry %>
+    <% end %>
+  </div>
+    <%= will_paginate @bidding, param_name: "bidding_page", params: {anchor: "biddingPage"}, renderer: BootstrapPagination::Rails %>
+</div>

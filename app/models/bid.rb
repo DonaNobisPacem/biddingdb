@@ -15,6 +15,10 @@ class Bid < ActiveRecord::Base
 
 	searchkick
 
+	def mode_description
+		Mode.find(mode).description
+	end
+
 	private
 		def is_public_bidding?
 			if mode.present?

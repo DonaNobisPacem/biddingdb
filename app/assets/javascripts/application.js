@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
 
 //= require moment
@@ -20,4 +19,7 @@
 //= require pickers
 
 //= require cocoon
+//= require jquery.fullPage
+//= require masonry/jquery.masonry
+//= require isotope/jquery.isotope
 //= require_tree .

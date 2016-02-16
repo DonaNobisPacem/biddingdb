@@ -5,11 +5,18 @@ class BidsController < ApplicationController
   # GET /bids.json
   def index
     @bids = Bid.all
+    @shopping = @bids.where(mode: 1).paginate(:page => params[:shopping_page], :per_page => 50)
+    @bidding = @bids.where(mode: 2).paginate(:page => params[:bidding_page], :per_page => 50)
+    @quotation = @bids.where(mode: 3).paginate(:page => params[:quotation_page], :per_page => 50)
   end
 
   # GET /bids/1
   # GET /bids/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /bids/new

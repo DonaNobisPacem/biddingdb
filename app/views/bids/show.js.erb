@@ -1,0 +1,9 @@
+$modal = $('.modal'),
+$modalBody = $('.modal .modal-body'),
+$modalHeading = $('.modal .modal-heading');
+$modalHeading.html("<%= @bid.title %>");
+$modalBody.html("<%= escape_javascript(render @bid) %>");
+$btn = $('.modal .modal-footer .btn'),
+$btnPrimary = $('.btn .btn-primary');
+$btnPrimary.html("Edit");
+$modal.modal();

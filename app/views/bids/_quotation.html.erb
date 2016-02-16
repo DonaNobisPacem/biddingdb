@@ -1,0 +1,9 @@
+<div class="section" id="quotationSection">
+  <h1>Request for Quotation</h1>
+  <div id="quotation-masonry-container3" class="transitions-enabled infinite-scroll clearfix">
+    <% @quotation.each do |entry| %>
+      <%= render "entrybox", entry: entry %>
+    <% end %>
+  </div>
+    <%= will_paginate @quotation, param_name: "quotation_page", params: {anchor: "quotationPage"}, renderer: BootstrapPagination::Rails %>
+</div>

@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Biddingdb</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+		<title>BidDB</title>
+		<%= stylesheet_link_tag    'application', media: 'all' %>
+		<%= javascript_include_tag 'application' %>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/packery/1.4.3/packery.pkgd.js"></script>
+		<%= favicon_link_tag 'favicon.ico' %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		
+		<%= render 'shared/navigation' %>
+		<div id="main-container" class="container-fluid">
+			<div class="row">				
+				<div class="col-xs-2">
+				</div>
+				<div class="col-xs-8">
+					<% flash.each do |name, msg| %>
+						<% if user_signed_in? %>
+		            		<% content_tag :div, msg, class: "alert alert-#{name}" %>
+		            	<% end %>
+		         	<% end %>
 
-<%= yield %>
+					<%= yield %>
+				</div>
+				<div class="col-xs-2">
+				</div>
+			</div>
+		</div>
+		</div>
 
-</body>
+		<%= render 'bids/modal' %>
+	</body>
 </html>
