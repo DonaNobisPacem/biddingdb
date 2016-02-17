@@ -5,10 +5,17 @@ class BidsController < ApplicationController
   # GET /bids
   # GET /bids.json
   def index
-    @bids = Bid.all
-    @shopping = @bids.where(mode: 1).paginate(:page => params[:shopping_page], :per_page => 50)
-    @bidding = @bids.where(mode: 2).paginate(:page => params[:bidding_page], :per_page => 50)
-    @quotation = @bids.where(mode: 3).paginate(:page => params[:quotation_page], :per_page => 50)
+    if params[:search].present?
+      #@bids = Bid.search(params[:search], page: params[:page], per_page: 10)
+      @shopping = Bid.search(params[:search], page: params[:page], per_page: 150, where: {mode: 1} )
+      @bidding = Bid.search(params[:search], page: params[:page], per_page: 50, where: {mode: 2} )
+      @quotation = Bid.search(params[:search], page: params[:page], per_page: 50, where: {mode: 3} )
+    else
+      @bids = Bid.all
+      @shopping = @bids.where(mode: 1).paginate(:page => params[:shopping_page], :per_page => 50)
+      @bidding = @bids.where(mode: 2).paginate(:page => params[:bidding_page], :per_page => 50)
+      @quotation = @bids.where(mode: 3).paginate(:page => params[:quotation_page], :per_page => 50)
+    end
   end
 
   # GET /bids/1
