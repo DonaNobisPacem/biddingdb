@@ -12,6 +12,10 @@ RSpec.describe Bid, type: :model do
   	it { should validate_numericality_of(:number).is_greater_than_or_equal_to(0) }
   	it { should validate_presence_of(:mode) }
   	it { should validate_numericality_of(:mode).is_greater_than(0) }
+    it { should validate_presence_of(:budget) }
+    it { should validate_numericality_of(:budget).is_greater_than_or_equal_to(0) }
+    it { should validate_presence_of(:amount) }
+    it { should validate_numericality_of(:amount).is_greater_than_or_equal_to(0) }
 
     context "Procured via Public Bidding" do
       before(:each) { allow(subject).to receive(:is_public_bidding?).and_return(true) }

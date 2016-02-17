@@ -3,6 +3,8 @@ class Bid < ActiveRecord::Base
 	validates :contractor, presence: true
 	validates :mode, numericality: { :greater_than => 0 }, presence: true
 	validates :number, numericality: { :greater_than_or_equal_to => 0 }, presence: true
+	validates :budget, numericality: { :greater_than_or_equal_to => 0 }, presence: true
+	validates :amount, numericality: { :greater_than_or_equal_to => 0 }, presence: true
 
 	validates_presence_of :preprocurement, if: :is_public_bidding?
     validates_presence_of :prebidding, if: :is_public_bidding?

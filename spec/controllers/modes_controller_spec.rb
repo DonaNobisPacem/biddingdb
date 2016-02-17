@@ -24,11 +24,15 @@ RSpec.describe ModesController, type: :controller do
   # Mode. As you add validations to Mode, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      description: "MyDescription"
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      description: ""
+    }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +107,17 @@ RSpec.describe ModesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          description: "MyDescription2"
+        }
       }
 
       it "updates the requested mode" do
         mode = Mode.create! valid_attributes
         put :update, {:id => mode.to_param, :mode => new_attributes}, valid_session
         mode.reload
-        skip("Add assertions for updated state")
+        expect(assigns(:mode).description).to match(new_attributes[:description])
+
       end
 
       it "assigns the requested mode as @mode" do

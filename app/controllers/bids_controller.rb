@@ -76,6 +76,6 @@ class BidsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bid_params
-      params.require(:bid).permit(:title, :contractor, :number, :preprocurement, :prebidding, :bidding, :postqualification, :noa, :purchase, :ntp, :members, :remarks)
+      params.require(:bid).permit(:title, :contractor, :number, :mode, :budget, :amount, :preprocurement, :prebidding, :bidding, :postqualification, :noa, :purchase, :ntp, :members, :remarks)
     end
 end

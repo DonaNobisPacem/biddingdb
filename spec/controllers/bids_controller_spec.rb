@@ -24,11 +24,43 @@ RSpec.describe BidsController, type: :controller do
   # Bid. As you add validations to Bid, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      title: "MyString",
+      contractor: "MyString",
+      number: "1",
+      mode: "1",
+      budget: "9.99",
+      amount: "9.99",
+      preprocurement: "2016-02-16 15:56:05",
+      prebidding: "2016-02-16 15:56:05",
+      bidding: "2016-02-16 15:56:05",
+      postqualification: "2016-02-16 15:56:05",
+      noa: "2016-02-16 15:56:05",
+      purchase: "2016-02-16 15:56:05",
+      ntp: "2016-02-16 15:56:05",
+      members: "MyText",
+      remarks: "MyText"
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      title: "",
+      contractor: "",
+      number: "",
+      mode: "",
+      budget: "",
+      amount: "",
+      preprocurement: "2016-02-16 15:56:05",
+      prebidding: "2016-02-16 15:56:05",
+      bidding: "2016-02-16 15:56:05",
+      postqualification: "2016-02-16 15:56:05",
+      noa: "2016-02-16 15:56:05",
+      purchase: "2016-02-16 15:56:05",
+      ntp: "2016-02-16 15:56:05",
+      members: "MyText",
+      remarks: "MyText"
+    }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +135,30 @@ RSpec.describe BidsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          title: "MyString2",
+          contractor: "MyString",
+          number: "1",
+          mode: "1",
+          budget: "9.99",
+          amount: "9.99",
+          preprocurement: "2016-02-16 15:56:05",
+          prebidding: "2016-02-16 15:56:05",
+          bidding: "2016-02-16 15:56:05",
+          postqualification: "2016-02-16 15:56:05",
+          noa: "2016-02-16 15:56:05",
+          purchase: "2016-02-16 15:56:05",
+          ntp: "2016-02-16 15:56:05",
+          members: "MyText",
+          remarks: "MyText"
+        }
       }
 
       it "updates the requested bid" do
         bid = Bid.create! valid_attributes
         put :update, {:id => bid.to_param, :bid => new_attributes}, valid_session
         bid.reload
-        skip("Add assertions for updated state")
+        expect(assigns(:bid).title).to match(new_attributes[:title])
       end
 
       it "assigns the requested bid as @bid" do

@@ -9,7 +9,7 @@ $(document).ready ->
       'biddingPage'
       'quotationPage'
     ]
-    menu: '#pageMenu'
+    menu: '#menu'
     navigation: true
     slidesNavigation: true
     fixedElements: '#header'
