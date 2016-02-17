@@ -1,64 +1,88 @@
-<p id="notice"><%= notice %></p>
+<br>
+<div class="row">
+  <div class="col-md-6">
+    <p>
+      <strong>Project Title:</strong>
+      <%= @bid.title %>
+    </p>
+
+    <p>
+      <strong>Contractors/Suppliers:</strong>
+      <%= @bid.contractor %>
+    </p>
+
+    <p>
+      <strong>Number of Biddings:</strong>
+      <%= @bid.number %>
+    </p>
+
+    <p>
+      <strong>Mode of Procurement:</strong>
+      <%= @bid.mode_description %>
+    </p>
+
+    <p>
+      <strong>Approved Budget Clearance:</strong>
+      <%= number_with_precision( @bid.budget, precision: 2, delimiter: ',' ) %>
+    </p>
+
+    <p>
+      <strong>Actual Purchase Amount/Contract Price:</strong>
+      <%= number_with_precision( @bid.amount, precision: 2, delimiter: ',' ) %>
+    </p>
+  </div>
+  <div class="col-md-6">
+    <p>
+      <strong>Date of Pre-Procurement:</strong>
+      <%= @bid.preprocurement.strftime("%d %B %Y") if @bid.preprocurement %>
+    </p>
+
+    <p>
+      <strong>Date of Pre-Bidding:</strong>
+      <%= @bid.prebidding.strftime("%d %B %Y") if @bid.prebidding %>
+    </p>
+
+    <p>
+      <strong>Date of Bidding:</strong>
+      <%= @bid.bidding.strftime("%d %B %Y") if @bid.bidding %>
+    </p>
+
+    <p>
+      <strong>Date of Post-Qualification:</strong>
+      <%= @bid.postqualification.strftime("%d %B %Y") if @bid.postqualification %>
+    </p>
+
+    <p>
+      <strong>Date of Notice of Award:</strong>
+      <%= @bid.noa.strftime("%d %B %Y") if @bid.noa %>
+    </p>
+
+    <p>
+      <strong>Date of Purchase Order/Contract:</strong>
+      <%= @bid.purchase.strftime("%d %B %Y") if @bid.purchase %>
+    </p>
+
+    <p>
+      <strong>Date of Notice to Proceed:</strong>
+      <%= @bid.ntp.strftime("%d %B %Y") if @bid.ntp %>
+    </p>
+  </div>
+</div>
 
 <p>
-  <strong>Title:</strong>
-  <%= @bid.title %>
+  <strong>Members of Technical Working Group:</strong><br>
+  <% unless @bid.members.blank? %>
+    <div class="well well-sm" style="overflow:auto"><%= simple_format(@bid.members) %></div>
+  <% end %>
 </p>
 
 <p>
-  <strong>Contractor:</strong>
-  <%= @bid.contractor %>
+  <strong>Remarks:</strong><br>
+  <% unless @bid.remarks.blank? %>
+    <div class="well well-sm" style="overflow:auto"><%= simple_format(@bid.remarks) %></div>
+  <% end %>
 </p>
 
-<p>
-  <strong>Number:</strong>
-  <%= @bid.number %>
-</p>
-
-<p>
-  <strong>Preprocurement:</strong>
-  <%= @bid.preprocurement %>
-</p>
-
-<p>
-  <strong>Prebidding:</strong>
-  <%= @bid.prebidding %>
-</p>
-
-<p>
-  <strong>Bidding:</strong>
-  <%= @bid.bidding %>
-</p>
-
-<p>
-  <strong>Postqualification:</strong>
-  <%= @bid.postqualification %>
-</p>
-
-<p>
-  <strong>Noa:</strong>
-  <%= @bid.noa %>
-</p>
-
-<p>
-  <strong>Purchase:</strong>
-  <%= @bid.purchase %>
-</p>
-
-<p>
-  <strong>Ntp:</strong>
-  <%= @bid.ntp %>
-</p>
-
-<p>
-  <strong>Members:</strong>
-  <%= @bid.members %>
-</p>
-
-<p>
-  <strong>Remarks:</strong>
-  <%= @bid.remarks %>
-</p>
-
-<%= link_to 'Edit', edit_bid_path(@bid) %> |
-<%= link_to 'Back', bids_path %>
+<div class="pull-right">
+  <%= link_to 'Edit', edit_bid_path(@bid), class: "btn btn-info btn-sm" %>
+</div>

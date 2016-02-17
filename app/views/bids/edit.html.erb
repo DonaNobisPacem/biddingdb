@@ -1,6 +1,4 @@
-<h1>Editing Bid</h1>
-
+<h1>Editing <%= link_to @bid.title, @bid %></h1>
+<hr>
 <%= render 'form' %>
 
-<%= link_to 'Show', @bid %> |
-<%= link_to 'Back', bids_path %>

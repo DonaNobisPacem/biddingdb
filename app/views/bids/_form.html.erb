@@ -2,21 +2,30 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :contractor %>
-    <%= f.input :number %>
-    <%= f.input :preprocurement %>
-    <%= f.input :prebidding %>
-    <%= f.input :bidding %>
-    <%= f.input :postqualification %>
-    <%= f.input :noa %>
-    <%= f.input :purchase %>
-    <%= f.input :ntp %>
-    <%= f.input :members %>
-    <%= f.input :remarks %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.input :title, label: "Project Title:" %>
+        <%= f.input :contractor, label: "Contractors/Suppliers:" %>
+        <%= f.input :number, label: "Number of Biddings:" %>
+        <%= f.input :mode, label: "Mode of Procurement:", collection: Mode.all, label_method: :description, include_blank: false %>
+        <%= f.input :budget, label: "Approved Budget Clearance:" %>
+        <%= f.input :amount, label: "Actual Purchase Amount/Contract Price:" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.input :preprocurement, label: "Date of Pre-Procurement:", :as => :date_picker, :placeholder => "DD/MM/YYYY" %>
+        <%= f.input :prebidding, label: "Date of Pre-Bidding:", :as => :date_picker, :placeholder => "DD/MM/YYYY" %>
+        <%= f.input :bidding, label: "Date of Bidding:", :as => :date_picker, :placeholder => "DD/MM/YYYY" %>
+        <%= f.input :postqualification, label: "Date of Post-Qualification:", :as => :date_picker, :placeholder => "DD/MM/YYYY" %>
+        <%= f.input :noa, label: "Date of Notice of Award:", :as => :date_picker, :placeholder => "DD/MM/YYYY" %>
+        <%= f.input :purchase, label: "Date of Purchase Order/Contract:", :as => :date_picker, :placeholder => "DD/MM/YYYY" %>
+        <%= f.input :ntp, label: "Date of Notice to Proceed:", :as => :date_picker, :placeholder => "DD/MM/YYYY" %>
+      </div>
+    </div>
+    <%= f.input :members, label: "Members of Technical Working Group:", :input_html => {:rows => 4} %>
+    <%= f.input :remarks, label: "Remarks:", :input_html => {:rows => 5} %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-success pull-right" %>
   </div>
 <% end %>

@@ -1,59 +1,72 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-6">
+    <p>
+      <strong>Project Title:</strong>
+      <%= @bid.title %>
+    </p>
 
-<p>
-  <strong>Project Title:</strong>
-  <%= @bid.title %>
-</p>
+    <p>
+      <strong>Contractors/Suppliers:</strong>
+      <%= @bid.contractor %>
+    </p>
 
-<p>
-  <strong>Contractors/Suppliers:</strong>
-  <%= @bid.contractor %>
-</p>
+    <p>
+      <strong>Number of Biddings:</strong>
+      <%= @bid.number %>
+    </p>
 
-<p>
-  <strong>Number of Biddings:</strong>
-  <%= @bid.number %>
-</p>
+    <p>
+      <strong>Mode of Procurement:</strong>
+      <%= @bid.mode_description %>
+    </p>
 
-<p>
-  <strong>Mode of Procurement:</strong>
-  <%= @bid.mode_description %>
-</p>
+    <p>
+      <strong>Approved Budget Clearance:</strong>
+      <%= number_with_precision( @bid.budget, precision: 2, delimiter: ',' ) %>
+    </p>
 
-<p>
-  <strong>Date of Pre-Procurement:</strong>
-  <%= @bid.preprocurement.strftime("%d %B %Y") if @bid.preprocurement %>
-</p>
+    <p>
+      <strong>Actual Purchase Amount/Contract Price:</strong>
+      <%= number_with_precision( @bid.amount, precision: 2, delimiter: ',' ) %>
+    </p>
+  </div>
+  <div class="col-md-6">
+    <p>
+      <strong>Date of Pre-Procurement:</strong>
+      <%= @bid.preprocurement.strftime("%d %B %Y") if @bid.preprocurement %>
+    </p>
 
-<p>
-  <strong>Date of Pre-Bidding:</strong>
-  <%= @bid.prebidding.strftime("%d %B %Y") if @bid.prebidding %>
-</p>
+    <p>
+      <strong>Date of Pre-Bidding:</strong>
+      <%= @bid.prebidding.strftime("%d %B %Y") if @bid.prebidding %>
+    </p>
 
-<p>
-  <strong>Date of Bidding:</strong>
-  <%= @bid.bidding.strftime("%d %B %Y") if @bid.bidding %>
-</p>
+    <p>
+      <strong>Date of Bidding:</strong>
+      <%= @bid.bidding.strftime("%d %B %Y") if @bid.bidding %>
+    </p>
 
-<p>
-  <strong>Date of Post-Qualification:</strong>
-  <%= @bid.postqualification.strftime("%d %B %Y") if @bid.postqualification %>
-</p>
+    <p>
+      <strong>Date of Post-Qualification:</strong>
+      <%= @bid.postqualification.strftime("%d %B %Y") if @bid.postqualification %>
+    </p>
 
-<p>
-  <strong>Date of Notice of Award:</strong>
-  <%= @bid.noa.strftime("%d %B %Y") if @bid.noa %>
-</p>
+    <p>
+      <strong>Date of Notice of Award:</strong>
+      <%= @bid.noa.strftime("%d %B %Y") if @bid.noa %>
+    </p>
 
-<p>
-  <strong>Date of Purchase Order/Contract:</strong>
-  <%= @bid.purchase.strftime("%d %B %Y") if @bid.purchase %>
-</p>
+    <p>
+      <strong>Date of Purchase Order/Contract:</strong>
+      <%= @bid.purchase.strftime("%d %B %Y") if @bid.purchase %>
+    </p>
 
-<p>
-  <strong>Date of Notice to Proceed:</strong>
-  <%= @bid.ntp.strftime("%d %B %Y") if @bid.ntp %>
-</p>
+    <p>
+      <strong>Date of Notice to Proceed:</strong>
+      <%= @bid.ntp.strftime("%d %B %Y") if @bid.ntp %>
+    </p>
+  </div>
+</div>
 
 <p>
   <strong>Members of Technical Working Group:</strong><br>
@@ -69,5 +82,9 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_bid_path(@bid) %> |
-<%= link_to 'Back', bids_path %>
+<div class="btn-group pull-right">
+  <%= link_to 'Delete', @bid, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+  <%= link_to 'Edit', edit_bid_path(@bid), class: "btn btn-info btn-sm" %>
+  <button type="button" class="btn btn-success btn-sm" data-dismiss="modal">Close</button>
+</div>
+<div class="clearfix"></div>
