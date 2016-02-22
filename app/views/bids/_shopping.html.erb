@@ -1,10 +1,10 @@
-<div class="section" id="shoppingSection">
-  <h1>Shopping</h1>
-
-  <div id="shopping-masonry-container" class="transitions-enabled infinite-scroll clearfix">
-    <% @shopping.each do |entry| %>
-      <%= render "entrybox", entry: entry %>
-    <% end %>
-  </div>
-    <%= will_paginate @shopping, param_name: "shopping_page", params: {anchor: "shoppingPage"}, renderer: BootstrapPagination::Rails %>
+<div class="panel panel-success">
+  	<div class="panel-heading">
+  		<h3 class="panel-header">Shopping</h3>
+  	</div>
+  	<div class="panel-body" style="max-height: 800px ;overflow-y: scroll;">
+  		<% @shopping.each do |entry| %>
+	  		<%= render "entrybox", entry: entry %>
+  		<% end %>
+  	</div>
 </div>

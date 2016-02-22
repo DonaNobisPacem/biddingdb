@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>BidDB</title>
-		<%= stylesheet_link_tag    'application', media: 'all' %>
-		<%= javascript_include_tag 'application' %>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/packery/1.4.3/packery.pkgd.js"></script>
+		<title>Public Bidding Database</title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 		<%= favicon_link_tag 'favicon.ico' %>
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
+		<!--  Created by John Thomas Raphael Dulay for the University of the Philippines Office of the Vice President for Development  -->
 		
 		<%= render 'shared/navigation' %>
 		<div id="main-container" class="container-fluid">
-			<div class="row">				
-				<div class="col-xs-2">
+			<div class="row-fluid">				
+				<div class="col-md-2">
 				</div>
-				<div class="col-xs-8">
+				<div class="col-md-8">
 					<% flash.each do |name, msg| %>
 						<% if user_signed_in? %>
 		            		<% content_tag :div, msg, class: "alert alert-#{name}" %>
@@ -24,7 +24,7 @@
 
 					<%= yield %>
 				</div>
-				<div class="col-xs-2">
+				<div class="col-md-2">
 				</div>
 			</div>
 		</div>

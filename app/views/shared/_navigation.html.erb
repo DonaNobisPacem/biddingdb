@@ -6,17 +6,10 @@
 		    </div>
 
 		    <div class="collapse navbar-collapse">
+		      	
+				<%= render "shared/search" %>
 
-				<ul class="nav navbar-nav" id="menu">
-					<% if current_page?(root_url) || current_page?(bids_url) %>
-					    <li data-menuanchor="shoppingAnchorLink"><a href="#shoppingPage">Shopping</a></li>
-					    <li data-menuanchor="biddingAnchorLink"><a href="#biddingPage">Public Bidding</a></li>
-					    <li data-menuanchor="quotationAnchorLink"><a href="#quotationPage">Request for Quotation</a></li>
-					<% else %>
-						<li data-menuanchor="shoppingAnchorLink"><%= link_to "Shopping", root_path(anchor: "shoppingPage") %></li>
-					    <li data-menuanchor="biddingAnchorLink"><%= link_to "Public Bidding", root_path(anchor: "biddingPage") %></li>
-					    <li data-menuanchor="quotationAnchorLink"><%= link_to "Request for Quotation", root_path(anchor: "quotationPage") %></li>
-					<% end %>
+				<ul class="nav navbar-nav">
 					<li>
 						<%= link_to new_bid_path do %>
 						  	<i class="fa fa-plus"></i> Add Entry
@@ -49,8 +42,7 @@
 						<% end %>
 					</li>
 		      	</ul>
-		      	
-				<%= render "shared/search" %>
+
 		    </div>
 	  	</div>
 	</nav>
