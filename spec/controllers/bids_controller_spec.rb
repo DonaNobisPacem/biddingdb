@@ -68,6 +68,10 @@ RSpec.describe BidsController, type: :controller do
   # BidsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  before(:each) do
+    allow(controller).to receive(:authenticate_user!).and_return(true)
+  end
+
   describe "GET #index" do
     it "assigns all bids as @bids" do
       bid = Bid.create! valid_attributes

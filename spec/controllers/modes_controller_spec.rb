@@ -40,6 +40,10 @@ RSpec.describe ModesController, type: :controller do
   # ModesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  before(:each) do
+    allow(controller).to receive(:authenticate_user!).and_return(true)
+  end
+
   describe "GET #index" do
     it "assigns all modes as @modes" do
       mode = Mode.create! valid_attributes
