@@ -79,3 +79,5 @@ gem 'figaro'
 
 # Login
 gem 'devise'
+
+gem 'simple_calendar'

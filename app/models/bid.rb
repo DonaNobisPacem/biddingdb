@@ -21,6 +21,10 @@ class Bid < ActiveRecord::Base
 		Mode.find(mode).description
 	end
 
+	def start_time
+		self.preprocurement
+	end
+
 	private
 		def is_public_bidding?
 			if mode.present?

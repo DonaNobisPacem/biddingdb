@@ -1,0 +1,44 @@
+<%= month_calendar do |date| %>
+  <%= date.strftime("%d") %>
+  <% Bid.where(preprocurement: (date.beginning_of_day)..(date.end_of_day)).each do |bid| %>
+  	<%= link_to bid, remote: true do %>
+  		<li><%= bid.title.truncate(20) %></li>
+  	<% end %>
+  <% end %>
+
+  <% Bid.where(prebidding: (date.beginning_of_day)..(date.end_of_day)).each do |bid| %>
+  	<%= link_to bid, remote: true do %>
+  		<li><%= bid.title.truncate(20) %></li>
+  	<% end %>
+  <% end %>
+
+  <% Bid.where(bidding: (date.beginning_of_day)..(date.end_of_day)).each do |bid| %>
+  	<%= link_to bid, remote: true do %>
+  		<li><%= bid.title.truncate(20) %></li>
+  	<% end %>
+  <% end %>
+
+  <% Bid.where(postqualification: (date.beginning_of_day)..(date.end_of_day)).each do |bid| %>
+  	<%= link_to bid, remote: true do %>
+  		<li><%= bid.title.truncate(20) %></li>
+  	<% end %>
+  <% end %>
+
+  <% Bid.where(noa: (date.beginning_of_day)..(date.end_of_day)).each do |bid| %>
+  	<%= link_to bid, remote: true do %>
+  		<li><%= bid.title.truncate(20) %></li>
+  	<% end %>
+  <% end %>
+
+  <% Bid.where(purchase: (date.beginning_of_day)..(date.end_of_day)).each do |bid| %>
+  	<%= link_to bid, remote: true do %>
+  		<li><%= bid.title.truncate(20) %></li>
+  	<% end %>
+  <% end %>
+
+  <% Bid.where(ntp: (date.beginning_of_day)..(date.end_of_day)).each do |bid| %>
+  	<%= link_to bid, remote: true do %>
+  		<li><%= bid.title.truncate(20) %></li>
+  	<% end %>
+  <% end %>
+<% end %>
