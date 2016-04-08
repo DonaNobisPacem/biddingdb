@@ -1,44 +1,23 @@
 <%= month_calendar do |date| %>
-  <%= date.strftime("%d") %>
-  <% Bid.where(preprocurement: (date.beginning_of_day)..(date.end_of_day)).each do |bid| %>
-  	<%= link_to bid, remote: true do %>
-  		<li><%= bid.title.truncate(20) %></li>
-  	<% end %>
-  <% end %>
-
-  <% Bid.where(prebidding: (date.beginning_of_day)..(date.end_of_day)).each do |bid| %>
-  	<%= link_to bid, remote: true do %>
-  		<li><%= bid.title.truncate(20) %></li>
-  	<% end %>
-  <% end %>
-
-  <% Bid.where(bidding: (date.beginning_of_day)..(date.end_of_day)).each do |bid| %>
-  	<%= link_to bid, remote: true do %>
-  		<li><%= bid.title.truncate(20) %></li>
-  	<% end %>
-  <% end %>
-
-  <% Bid.where(postqualification: (date.beginning_of_day)..(date.end_of_day)).each do |bid| %>
-  	<%= link_to bid, remote: true do %>
-  		<li><%= bid.title.truncate(20) %></li>
-  	<% end %>
-  <% end %>
-
-  <% Bid.where(noa: (date.beginning_of_day)..(date.end_of_day)).each do |bid| %>
-  	<%= link_to bid, remote: true do %>
-  		<li><%= bid.title.truncate(20) %></li>
-  	<% end %>
-  <% end %>
-
-  <% Bid.where(purchase: (date.beginning_of_day)..(date.end_of_day)).each do |bid| %>
-  	<%= link_to bid, remote: true do %>
-  		<li><%= bid.title.truncate(20) %></li>
-  	<% end %>
-  <% end %>
-
-  <% Bid.where(ntp: (date.beginning_of_day)..(date.end_of_day)).each do |bid| %>
-  	<%= link_to bid, remote: true do %>
-  		<li><%= bid.title.truncate(20) %></li>
-  	<% end %>
-  <% end %>
+  <b class="pull-right"><%= date.strftime("%d") %></b>
+  <br>
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-success">
+      <div class="panel-heading" role="tab" id="heading-<%= date %>">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion-<%= date %>" href="#collapse-<%= date %>" aria-expanded="true" aria-controls="collapse-<%= date %>">
+            <%= fetch_bids(date).count.to_s + " Bids" %>
+          </a>
+        </h4>
+      </div>
+      <div id="collapse-<%= date %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-<%= date %>">
+        <div class="panel-body">
+          <% fetch_bids(date).each do |bid| %>
+          	<li><%= link_to bid.title.truncate(15), bid, remote: true%></li>
+          <% end %>
+        </div>  
+      </div>  
+    </div>
+  </div>
 <% end %>
+
