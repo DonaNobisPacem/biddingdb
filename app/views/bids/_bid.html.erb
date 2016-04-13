@@ -11,7 +11,7 @@
     </p>
 
     <p>
-      <strong>Number of Biddings:</strong>
+      <strong>Number of Previous Biddings:</strong>
       <%= @bid.number %>
     </p>
 
@@ -72,6 +72,13 @@
   <strong>Members of Technical Working Group:</strong><br>
   <% unless @bid.members.blank? %>
     <div class="well well-sm" style="overflow:auto"><%= simple_format(@bid.members) %></div>
+  <% end %>
+</p>
+
+<p>
+  <strong>Additional Information:</strong><br>
+  <% unless @bid.addtl_info.blank? %>
+    <div class="well well-sm" style="overflow:auto"><%= simple_format(@bid.addtl_info) %></div>
   <% end %>
 </p>
 

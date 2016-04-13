@@ -6,7 +6,7 @@
       <div class="col-md-6">
         <%= f.input :title, label: "Project Title:" %>
         <%= f.input :contractor, label: "Contractors/Suppliers:" %>
-        <%= f.input :number, label: "Number of Biddings:" %>
+        <%= f.input :number, label: "Number of Previous Biddings:" %>
         <%= f.input :mode, label: "Mode of Procurement:", collection: Mode.all, label_method: :description, include_blank: false %>
         <%= f.input :budget, label: "Approved Budget Clearance:" %>
         <%= f.input :amount, label: "Actual Purchase Amount/Contract Price:" %>
@@ -22,6 +22,7 @@
       </div>
     </div>
     <%= f.input :members, label: "Members of Technical Working Group:", :input_html => {:rows => 4} %>
+    <%= f.input :addtl_info, label: "Additional Information:", :input_html => {:rows => 5} %>
     <%= f.input :remarks, label: "Remarks:", :input_html => {:rows => 5} %>
   </div>
 

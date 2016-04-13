@@ -32,4 +32,12 @@ module CalendarsHelper
 				start_date, end_date
 			)
 	end
+
+	def conditional_div( count )
+		if count < 1
+			return "panel-warning"
+		else
+			return "panel-success"
+		end
+	end
 end

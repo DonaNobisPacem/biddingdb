@@ -2,7 +2,7 @@
   <b class="pull-right"><%= date.strftime("%d") %></b>
   <br>
   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-    <div class="panel panel-success">
+    <div class="panel <%= conditional_div(fetch_bids(date).count) %>">
       <div class="panel-heading" role="tab" id="heading-<%= date %>">
         <h4 class="panel-title">
           <a role="button" data-toggle="collapse" data-parent="#accordion-<%= date %>" href="#collapse-<%= date %>" aria-expanded="true" aria-controls="collapse-<%= date %>">
@@ -13,7 +13,7 @@
       <div id="collapse-<%= date %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-<%= date %>">
         <div class="panel-body">
           <% fetch_bids(date).each do |bid| %>
-          	<li><%= link_to bid.title.truncate(15), bid, remote: true%></li>
+          	<li><%= link_to bid.title.truncate(15), bid, remote: true %></li>
           <% end %>
         </div>  
       </div>  
