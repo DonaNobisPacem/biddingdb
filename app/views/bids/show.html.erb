@@ -32,39 +32,75 @@
     </p>
   </div>
   <div class="col-md-6">
+    <% stopper = false %>
     <p>
       <strong>Date of Pre-Procurement:</strong>
-      <%= @bid.preprocurement.strftime("%d %B %Y") if @bid.preprocurement %>
+      <% if !stopper &&  @bid.preprocurement.present? && DateTime.now < @bid.preprocurement %>
+        <% stopper = true %>
+        <b style="color: red;"><%= @bid.preprocurement.try(:strftime ,"%d %B %Y") %></b>
+      <% else %>
+        <%= @bid.preprocurement.try(:strftime ,"%d %B %Y") %>
+      <% end %>
     </p>
 
     <p>
       <strong>Date of Pre-Bidding:</strong>
-      <%= @bid.prebidding.strftime("%d %B %Y") if @bid.prebidding %>
+      <% if !stopper &&  @bid.prebidding.present? && DateTime.now < @bid.prebidding %>
+        <% stopper = true %>
+        <b style="color: red;"><%= @bid.prebidding.try(:strftime ,"%d %B %Y") %></b>
+      <% else %>
+        <%= @bid.prebidding.try(:strftime ,"%d %B %Y") %>
+      <% end %>
     </p>
 
     <p>
       <strong>Date of Bidding:</strong>
-      <%= @bid.bidding.strftime("%d %B %Y") if @bid.bidding %>
+      <% if !stopper &&  @bid.bidding.present? && DateTime.now < @bid.bidding %>
+        <% stopper = true %>
+        <b style="color: red;"><%= @bid.bidding.try(:strftime ,"%d %B %Y") %></b>
+      <% else %>
+        <%= @bid.bidding.try(:strftime ,"%d %B %Y") %>
+      <% end %>
     </p>
 
     <p>
       <strong>Date of Post-Qualification:</strong>
-      <%= @bid.postqualification.strftime("%d %B %Y") if @bid.postqualification %>
+      <% if !stopper &&  @bid.postqualification.present? && DateTime.now < @bid.postqualification %>
+        <% stopper = true %>
+        <b style="color: red;"><%= @bid.postqualification.try(:strftime ,"%d %B %Y") %></b>
+      <% else %>
+        <%= @bid.postqualification.try(:strftime ,"%d %B %Y") %>
+      <% end %>
     </p>
 
     <p>
       <strong>Date of Notice of Award:</strong>
-      <%= @bid.noa.strftime("%d %B %Y") if @bid.noa %>
+      <% if !stopper &&  @bid.noa.present? && DateTime.now < @bid.noa %>
+        <% stopper = true %>
+        <b style="color: red;"><%= @bid.noa.try(:strftime ,"%d %B %Y") %></b>
+      <% else %>
+        <%= @bid.noa.try(:strftime ,"%d %B %Y") %>
+      <% end %>
     </p>
 
     <p>
       <strong>Date of Purchase Order/Contract:</strong>
-      <%= @bid.purchase.strftime("%d %B %Y") if @bid.purchase %>
+      <% if !stopper &&  @bid.purchase.present? && DateTime.now < @bid.purchase %>
+        <% stopper = true %>
+        <b style="color: red;"><%= @bid.purchase.try(:strftime ,"%d %B %Y") %></b>
+      <% else %>
+        <%= @bid.purchase.try(:strftime ,"%d %B %Y") %>
+      <% end %>
     </p>
 
     <p>
       <strong>Date of Notice to Proceed:</strong>
-      <%= @bid.ntp.strftime("%d %B %Y") if @bid.ntp %>
+      <% if !stopper &&  @bid.ntp.present? && DateTime.now < @bid.ntp %>
+        <% stopper = true %>
+        <b style="color: red;"><%= @bid.ntp.try(:strftime ,"%d %B %Y") %></b>
+      <% else %>
+        <%= @bid.ntp.try(:strftime ,"%d %B %Y") %>
+      <% end %>
     </p>
   </div>
 </div>
@@ -90,6 +126,8 @@
   <% end %>
 </p>
 
-<div class="pull-right">
+<div class="btn-group pull-right">
+  <%= link_to 'Delete', @bid, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
   <%= link_to 'Edit', edit_bid_path(@bid), class: "btn btn-info btn-sm" %>
+  <%= link_to 'Close', root_path, class: "btn btn-success btn-sm" %>
 </div>
