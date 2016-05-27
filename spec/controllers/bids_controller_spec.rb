@@ -70,6 +70,7 @@ RSpec.describe BidsController, type: :controller do
 
   before(:each) do
     allow(controller).to receive(:authenticate_user!).and_return(true)
+    allow(controller).to receive(:check_user_access!).and_return(true)
   end
 
   describe "GET #index" do

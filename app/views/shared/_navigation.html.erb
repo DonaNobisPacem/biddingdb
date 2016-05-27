@@ -11,8 +11,10 @@
 
 				<ul class="nav navbar-nav">
 					<li>
-						<%= link_to new_bid_path do %>
-						  	<i class="fa fa-plus"></i> Add Entry
+						<% unless current_user.read_only %>
+							<%= link_to new_bid_path do %>
+							  	<i class="fa fa-plus"></i> Add Entry
+							<% end %>
 						<% end %>
 					</li>
 

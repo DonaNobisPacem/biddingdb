@@ -1,5 +1,6 @@
 class BidsController < ApplicationController
   before_action :authenticate_user!
+  before_action :check_user_access!, except: [:index, :show]
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
 
   # GET /bids
@@ -85,5 +86,9 @@ class BidsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def bid_params
       params.require(:bid).permit(:title, :contractor, :number, :mode, :budget, :amount, :preprocurement, :prebidding, :bidding, :postqualification, :noa, :purchase, :ntp, :members, :addtl_info, :remarks)
+    end
+
+    def check_user_access!
+      redirect_to "/" if current_user.read_only
     end
 end
