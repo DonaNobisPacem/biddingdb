@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527064245) do
+ActiveRecord::Schema.define(version: 20160707084202) do
 
   create_table "bids", force: :cascade do |t|
     t.string   "title",             limit: 255
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160527064245) do
     t.decimal  "budget",                          precision: 15, scale: 2
     t.decimal  "amount",                          precision: 15, scale: 2
     t.text     "addtl_info",        limit: 65535
+    t.boolean  "archived"
   end
 
   create_table "modes", force: :cascade do |t|

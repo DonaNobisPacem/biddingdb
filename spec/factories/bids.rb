@@ -15,5 +15,6 @@ FactoryGirl.define do
     ntp "2016-02-16 15:56:05"
     members "MyText"
     remarks "MyText"
+    archived false
   end
 end

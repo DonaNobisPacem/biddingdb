@@ -12,11 +12,18 @@ class BidsController < ApplicationController
       @bidding = Bid.search(params[:search], where: {mode: 2} )
       @quotation = Bid.search(params[:search], where: {mode: 3} )
     else
-      @bids = Bid.all
+      @bids = Bid.where("archived is null or archived is false").order(created_at: :desc)
       @shopping = @bids.where(mode: 1)
       @bidding = @bids.where(mode: 2)
       @quotation = @bids.where(mode: 3)
     end
+  end
+
+  def archive
+    @bids = Bid.where(archived: true).order(created_at: :desc)
+    @shopping = @bids.where(mode: 1)
+    @bidding = @bids.where(mode: 2)
+    @quotation = @bids.where(mode: 3)
   end
 
   # GET /bids/1
@@ -85,7 +92,7 @@ class BidsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bid_params
-      params.require(:bid).permit(:title, :contractor, :number, :mode, :budget, :amount, :preprocurement, :prebidding, :bidding, :postqualification, :noa, :purchase, :ntp, :members, :addtl_info, :remarks)
+      params.require(:bid).permit(:title, :contractor, :number, :mode, :budget, :amount, :preprocurement, :prebidding, :bidding, :postqualification, :noa, :purchase, :ntp, :members, :addtl_info, :remarks, :archived)
     end
 
     def check_user_access!

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'bids#index'
   get '/admin_panel' => 'users#admin'
   get '/calendar' => 'calendars#index'
+  get '/archive' => 'bids#archive'
 
   resources :modes
   resources :bids
