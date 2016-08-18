@@ -11,6 +11,13 @@ Rails.application.routes.draw do
   scope "/admin" do
     resources :users
   end
+
+  namespace :api do
+    api version: 1, module: 'v1' do
+      resources :sessions, only: [:create]
+      resources :bids, only: [:index, :show]
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

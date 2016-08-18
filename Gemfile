@@ -87,3 +87,4 @@ gem 'figaro'
 gem 'devise'
 
 gem 'simple_calendar'
+gem 'rocket_pants'
