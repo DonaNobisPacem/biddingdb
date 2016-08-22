@@ -2,7 +2,7 @@ class Api::V1::BidsController < Api::V1::BaseController
   before_action :set_bid, only: [:show]
 
   def index
-    expose Bid.all, only: [:id, :title, :contractor]
+    expose Bid.all, only: [:id, :title, :contractor, :mode]
   end
 
   def show
