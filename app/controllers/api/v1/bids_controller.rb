@@ -2,11 +2,15 @@ class Api::V1::BidsController < Api::V1::BaseController
   before_action :set_bid, only: [:show]
 
   def index
-    expose Bid.all, only: [:id, :title, :contractor, :mode]
+    expose Bid.where("archived is null or archived is false").order(created_at: :desc), only: [:id, :title, :contractor, :mode]
   end
 
   def show
     expose @bid
+  end
+
+  def archive
+    expose Bid.where(archived: true).order(created_at: :desc), only: [:id, :title, :contractor, :mode]
   end
 
   private

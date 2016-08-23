@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     api version: 1, module: 'v1' do
       resources :sessions, only: [:create]
       resources :bids, only: [:index, :show]
+      get '/archive' => 'bids#archive'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
